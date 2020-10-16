@@ -14,17 +14,22 @@ int main()
 	for(i = 0; i < n; i++)
 	{
 		int min = a[i];
+		int flag = 0;
 		for(int j = i; j < n-1; j++)
 		{
 			if(a[j+1] < min)
 			{
 				min = a[j+1];
 				imin = j + 1;
+				flag = 1;
 			}
 		}
-		int tmp = a[i];
-		a[i] = min;
-		a[imin]= tmp;
+		if(flag == 1)
+		{
+			int tmp = a[i];
+			a[i] = min;
+			a[imin]= tmp;
+		}
 	}
 	cout<<"Sorted Array: ";
 	for(i = 0; i < n; i++)
